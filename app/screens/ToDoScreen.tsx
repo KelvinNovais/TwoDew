@@ -13,7 +13,7 @@ import { Text, View } from '../components/Themed';
 
 let id = '4';
 
-export default function TabOneScreen() {
+export default function ToDoScreen() {
   const [title, setTitle] = useState('');
 
   const [todos, setTodos] = useState([{
@@ -44,6 +44,7 @@ export default function TabOneScreen() {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 150 : 150}
     >
       <TextInput
         style={styles.title}
@@ -51,7 +52,7 @@ export default function TabOneScreen() {
         onChangeText={setTitle}
         placeholder={'Your title goes here'}
       />
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.separator} lightColor="gray" darkColor="rgba(255,255,255,0.1)" />
 
       <FlatList
         data={todos}
@@ -63,7 +64,7 @@ export default function TabOneScreen() {
         )}
         style={{ width: '100%' }}
       />
-    </KeyboardAvoidingView>
+    </KeyboardAvoidingView >
   );
 }
 
@@ -87,4 +88,4 @@ const styles = StyleSheet.create({
 });
 
 
-// Fonte: https://www.youtube.com/watch?v=GFQDJlVEXRg (1:25)
+// Fonte: https://youtu.be/GFQDJlVEXRg?t=8750

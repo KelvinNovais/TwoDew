@@ -31,6 +31,10 @@ const ToDoItem = ({ todo, onSubmit }: ToDoItemsProps) => {
 
     }, [input])
 
+    const test = () => {
+        console.warn('ENTER')
+    }
+
     return (
         <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 3 }}>
             {/* Checkbox */}
@@ -52,24 +56,24 @@ const ToDoItem = ({ todo, onSubmit }: ToDoItemsProps) => {
                 keyboardType='default'
                 // Determines how the return key should look
                 returnKeyType='next'
-                // multiline
+                multiline
                 onKeyPress={(event) => {
                     if (event.nativeEvent.key == "Enter") {
-                        console.warn('ENTER was pressed')
-                        onSubmit()
+                        console.log('ENTER was pressed')
                     }
                     else {
-                        // console.warn('Pressed ' + event.nativeEvent.key)
-                        console.log(event)
+                        console.log('Pressed ' + event.nativeEvent.key)
                     }
                     // https://stackoverflow.com/questions/53508294/react-native-e-nativeevent-key-enter-doesnt-work#53513365
 
                     if (event.nativeEvent.key == "Backspace" &&  content === "") {
                         // Delete item
-                        console.warn("Delete item")
+                        console.warn("···> Delete item")
                     }
                 }}
-                // blurOnSubmit
+                onSubmitEditing={onSubmit}
+                blurOnSubmit
+                autoFocus
             />
         </View>
     )
